@@ -1,0 +1,85 @@
+<html>
+   
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% block content %}
+        <style>
+
+        .col-md-12 {
+            font-size: 12px;
+        }
+
+        #input[ratio] {
+            font-size:12px;
+        }
+
+        .container {
+            border: 3px solid gray;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+
+        </style>
+    </head>  
+    <body>
+        <div class = "container">
+            <div class="form-floating">
+                <form action="{% url 'application'%}" method="post">
+                    <h1>Application</h1>
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type = "submit" class = "btn btn-primary" value = 'submit'>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+                    
+
+
+                    
+
+<!-- 
+            <form action="{% url 'application'%}" method="post">
+                <h1>Application</h1>
+                <div class="form-floating mb-3 mt-3">
+                    {{ form.Staff_id.errors }}
+                    <input 
+                        type="text"
+                        id="{{ form.Stuff_id.id_for_label }}" 
+                        Name="{{ form.Stuff_id.label }}"
+                        placeholder="Please Enter your {{ form.Stuff_id.label}}" 
+                        class="form-control" maxlength="8" required
+                    >
+                    <label for="{{ form.Stuff_id.id_for_label }}">{{ form.Stuff_id.label}}</label>
+                </div>
+    
+                <div class="form-floating mb-3 mt-3">
+                    {{ form.Name.errors }}
+                    <input 
+                        type="text"
+                        id="{{ form.Name.id_for_label }}" 
+                        placeholder="Please Enter your {{ form.Name.label }}" 
+                        class="form-control" maxlength="50" required
+                    >
+                    <label for="{{ form.Name.id_for_label }}">{{ form.Name.label}}</label>
+                </div>
+    
+                <div class="mb-3 mt-3">
+                    {{ form.Leave_type.errors }}
+                    <label for="{{ form.Leave_type.id_for_label }}", class="form-label">
+                        {{ form.Leave_type.label}}
+                    </label>
+                    <input 
+                        id="{{ form.Leave_type_for_label }}" 
+                        placeholder="Please Enter your {{ form.Leave_type.label }}" 
+                        class="form-control" maxlength="50" required
+                    >
+                </div>
+                {% endblock %}
+            </form> -->
